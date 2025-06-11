@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr"> <!-- Déclare la langue de la page (français) -->
+<head>
+  <meta charset="UTF-8"> <!-- Encodage des caractères -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive design -->
+  <title>Domomix - Simulateur</title> <!-- Titre de l’onglet du navigateur -->
+
+  <!-- Feuille de style principale -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- Script JavaScript du simulateur (externe) -->
+  <script defer src="assets/js/simulateur.js"></script>
+</head>
+
+<body>
+  <!-- ===== En-tête avec navigation ===== -->
+  <header>
+    <h1>Domomix</h1>
+    <nav>
+      <ul>
+        <!-- Liens vers les autres pages du site -->
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="projet.html">Projet</a></li>
+        <li><a href="fonctionnement.html">Fonctionnement</a></li>
+        <li><a href="ihm.html">Interface</a></li>
+        <li><a href="simulateur.html">Simulateur</a></li>
+        <li><a href="telechargements.html">Téléchargements</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== Section principale ===== -->
+  <main>
+    <!-- Formulaire d'ajout manuel de données -->
+    <h2>Ajouter une donnée capteur</h2>
+    <form id="formCapteur">
+      <label for="capteur">ID Capteur :</label>
+      <input type="text" id="capteur" required>
+
+      <label for="valeur">Valeur :</label>
+      <input type="text" id="valeur" required>
+
+      <button type="submit">Envoyer</button>
+    </form>
+
+    <!-- Boutons d’actions et champ de filtre -->
+    <div class="tools">
+      <button onclick="viderDonnees()">🗑️ Vider</button>
+      <input type="text" id="filtre" placeholder="Filtrer par capteur">
+      <button onclick="filtrerDonnees()">Filtrer</button>
+      <button onclick="exporterCSV()">⬇️ Export CSV</button>
+    </div>
+
+    <!-- Tableau affichant l’historique des mesures -->
+    <h2>Historique des données</h2>
+    <table id="tableau">
+      <thead>
+        <tr>
+          <th>Capteur</th>
+          <th>Donnée</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody></tbody> <!-- Les lignes sont générées dynamiquement via JS -->
+    </table>
+  </main>
+
+  <!-- ===== Pied de page ===== -->
+  <footer>
+    <p>&copy; 2025 IUT de Nantes - BUT GEII - Projet SAE4</p>
+  </footer>
+</body>
+</html>

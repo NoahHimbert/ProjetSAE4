@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr"> <!-- Langue principale de la page -->
+<head>
+  <meta charset="UTF-8"> <!-- Encodage des caractères -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Adaptation mobile -->
+  <title>Domomix - Accueil</title> <!-- Titre de la page (onglet) -->
+  <link rel="stylesheet" href="assets/css/style.css"> <!-- Lien vers ta feuille de style -->
+
+  <!-- Script pour simuler une température aléatoire dans un cercle -->
+  <script defer>
+    // Génère une température entre 20.0°C et 30.0°C toutes les 3 secondes
+    function simulateTemperature() {
+      const value = (Math.random() * 10 + 20).toFixed(1); // valeur simulée
+      const gauge = document.getElementById('gaugeValue'); // zone à modifier
+      if (gauge) {
+        gauge.textContent = value + ' °C'; // mise à jour de l’affichage
+      }
+    }
+    setInterval(simulateTemperature, 3000); // appel répété toutes les 3s
+    window.onload = simulateTemperature; // appel initial dès chargement
+  </script>
+
+  <!-- Style interne pour dessiner le cercle de température -->
+  <style>
+    #gaugeBox {
+      margin: 2rem auto;
+      width: 200px;
+      height: 200px;
+      border: 10px solid #007bff;      /* bord bleu */
+      border-radius: 50%;              /* cercle parfait */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #333;
+      background-color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ===== En-tête avec logo et navigation ===== -->
+  <header>
+    <div class="logo">
+      <img src="assets/css/logo-iut-nantes.jpg" alt="Logo IUT de Nantes">
+    </div>
+    <h1>Domomix</h1>
+    <nav>
+      <ul>
+        <!-- Menu vers toutes les pages du site -->
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="projet.html">Projet</a></li>
+        <li><a href="fonctionnement.html">Fonctionnement</a></li>
+        <li><a href="ihm.html">Interface</a></li>
+        <li><a href="simulateur.html">Simulateur</a></li>
+        <li><a href="telechargements.html">Téléchargements</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== Contenu principal de la page d’accueil ===== -->
+  <main>
+    <!-- Présentation du projet -->
+    <section class="section" style="background-color:#e0f2fe">
+      <h2>Bienvenue sur le projet Domomix</h2>
+      <p>
+        Domomix est une solution domotique développée en Python et PHP pour
+        superviser la température ambiante à l'aide de capteurs EnOcean.
+      </p>
+      <!-- Bouton pour aller au simulateur -->
+      <button class="btn-scroll" onclick="location.href='simulateur.html'">Voir la Démo</button>
+    </section>
+
+    <!-- Bloc de simulation de température -->
+    <section class="section">
+      <h3>Simulation de Température</h3>
+      <div id="gaugeBox">
+        <div id="gaugeValue">-- °C</div> <!-- Valeur affichée ici -->
+      </div>
+      <p>Température aléatoire générée entre 20°C et 30°C, mise à jour toutes les 3 secondes.</p>
+    </section>
+
+    <!-- Informations sur les membres du projet -->
+    <section class="section">
+      <h3>Groupe Projet</h3>
+      <p>Noah HIMBERT, Elouan EHANNO, Tom CHAUVIERE</p>
+    </section>
+  </main>
+
+  <!-- ===== Pied de page ===== -->
+  <footer>
+    <p>&copy; 2025 IUT de Nantes - BUT GEII - Projet SAE4</p>
+  </footer>
+</body>
+</html>

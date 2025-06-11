@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr"> <!-- Indique que la langue de la page est le français -->
+<head>
+  <meta charset="UTF-8"> <!-- Encodage des caractères en UTF-8 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive mobile -->
+  <title>Domomix - Fonctionnement</title> <!-- Titre affiché dans l’onglet du navigateur -->
+  <link rel="stylesheet" href="assets/css/style.css"> <!-- Lien vers la feuille de style CSS -->
+</head>
+<body>
+
+  <!-- ===== En-tête avec le titre du site et le menu de navigation ===== -->
+  <header>
+    <h1>Domomix</h1>
+    <nav>
+      <ul>
+        <!-- Menu avec liens vers les autres pages -->
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="projet.html">Projet</a></li>
+        <li><a href="fonctionnement.html">Fonctionnement</a></li>
+        <li><a href="ihm.html">Interface</a></li>
+        <li><a href="simulateur.html">Simulateur</a></li>
+        <li><a href="telechargements.html">Téléchargements</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== Contenu principal de la page ===== -->
+  <main>
+    <h2>Fonctionnement du système Domomix</h2>
+
+    <!-- Présentation générale des étapes du système -->
+    <p>Le système Domomix repose sur un fonctionnement en plusieurs étapes :</p>
+
+    <ol>
+      <!-- Liste ordonnée des étapes techniques -->
+      <li><strong>Acquisition</strong> : les capteurs EnOcean (ou leur simulation) transmettent des données sous forme de trames.</li>
+      <li><strong>Transmission</strong> : les trames sont reçues via une liaison série (physique) ou par URL HTTP (simulateur web).</li>
+      <li><strong>Décodage</strong> : chaque trame est interprétée pour extraire la valeur utile (température, CO₂, etc.).</li>
+      <li><strong>Affichage</strong> : les valeurs sont affichées en temps réel dans une interface graphique.</li>
+      <li><strong>Historique</strong> : les données sont enregistrées dans un fichier CSV (version PHP) ou dans le stockage local du navigateur.</li>
+    </ol>
+
+    <!-- Description des différences entre version physique et web -->
+    <p>Le système web propose un simulateur pour envoyer des valeurs manuellement, les visualiser dans un tableau, les trier, les exporter ou les réinitialiser.</p>
+    <p>La version physique utilise une interface Python PyQt4/Qwt5 installée sur Raspberry Pi et reliée directement à un module EnOcean.</p>
+  </main>
+
+  <!-- ===== Pied de page avec copyright ===== -->
+  <footer>
+    <p>&copy; 2025 IUT de Nantes - BUT GEII - Projet SAE4</p>
+  </footer>
+
+</body>
+</html>

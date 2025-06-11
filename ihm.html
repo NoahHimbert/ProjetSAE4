@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr"> <!-- Déclare que le contenu est en français -->
+<head>
+  <meta charset="UTF-8"> <!-- Encodage en UTF-8 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive design -->
+  <title>Domomix - Interface</title> <!-- Titre affiché dans l'onglet -->
+  <link rel="stylesheet" href="assets/css/style.css"> <!-- Feuille de style externe -->
+
+  <!-- Import de Chart.js via CDN (bibliothèque de graphiques) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Script JavaScript embarqué pour créer les graphiques -->
+  <script defer>
+    let tempData = [], co2Data = [], labels = [];
+
+    // Fonction qui génère des valeurs aléatoires toutes les 3 secondes
+    function generateFakeData() {
+      const now = new Date().toLocaleTimeString();
+
+      // Garde seulement les 10 dernières valeurs
+      if (labels.length > 10) {
+        labels.shift();
+        tempData.shift();
+        co2Data.shift();
+      }
+
+      // Ajoute l'heure et les nouvelles valeurs simulées
+      labels.push(now);
+      tempData.push((Math.random() * 5 + 21).toFixed(1));       // Température entre 21 et 26 °C
+      co2Data.push(Math.floor(Math.random() * 200 + 400));      // CO₂ entre 400 et 600 ppm
+
+      // Met à jour les graphiques
+      tempChart.update();
+      co2Chart.update();
+    }
+
+    let tempChart, co2Chart;
+
+    // Initialise les graphiques quand la page est chargée
+    window.onload = () => {
+      const ctx1 = document.getElementById('tempChart').getContext('2d');
+      const ctx2 = document.getElementById('co2Chart').getContext('2d');
+
+      // Graphique température
+      tempChart = new Chart(ctx1, {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: 'Température (°C)',
+            data: tempData,
+            borderColor: 'rgba(255, 99, 132, 1)',
+            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            fill: true,
+            tension: 0.3
+          }]
+        }
+      });
+
+      // Graphique CO₂
+      co2Chart = new Chart(ctx2, {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: 'CO₂ (ppm)',
+            data: co2Data,
+            borderColor: 'rgba(54, 162, 235, 1)',
+            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+            fill: true,
+            tension: 0.3
+          }]
+        }
+      });
+
+      // Lance les mises à jour toutes les 3 secondes
+      setInterval(generateFakeData, 3000);
+    }
+  </script>
+
+  <!-- Style pour centrer les graphiques -->
+  <style>
+    canvas {
+      max-width: 600px;
+      margin: 2rem auto;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== En-tête avec menu de navigation ===== -->
+  <header>
+    <h1>Domomix</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="projet.html">Projet</a></li>
+        <li><a href="fonctionnement.html">Fonctionnement</a></li>
+        <li><a href="ihm.html">Interface</a></li>
+        <li><a href="simulateur.html">Simulateur</a></li>
+        <li><a href="telechargements.html">Téléchargements</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== Contenu principal avec deux graphiques ===== -->
+  <main>
+    <h2>Interface Graphique - Données simulées</h2>
+    <p>En attendant les trames capteurs réelles, voici une simulation dynamique de deux capteurs : température et taux de CO₂.</p>
+
+    <!-- Zone pour les graphiques -->
+    <canvas id="tempChart"></canvas>
+    <canvas id="co2Chart"></canvas>
+
+    <p>Ces données sont mises à jour toutes les 3 secondes.</p>
+  </main>
+
+  <!-- ===== Pied de page ===== -->
+  <footer>
+    <p>&copy; 2025 IUT de Nantes - BUT GEII - Projet SAE4</p>
+  </footer>
+</body>
+</html>

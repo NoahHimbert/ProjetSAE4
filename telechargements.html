@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr"> <!-- Langue principale : français -->
+<head>
+  <meta charset="UTF-8"> <!-- Encodage des caractères -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Affichage responsive -->
+  <title>Domomix - Téléchargements</title> <!-- Titre affiché dans l'onglet -->
+  <link rel="stylesheet" href="assets/css/style.css"> <!-- Lien vers le style global -->
+
+  <!-- Style local pour améliorer l’apparence des boutons de téléchargement -->
+  <style>
+    .download-list {
+      list-style: none;
+      padding: 0;
+    }
+    .download-list li {
+      margin: 1rem 0;
+    }
+    .download-link {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      background-color: #007bff;       /* bleu vif */
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background-color 0.2s;
+    }
+    .download-link:hover {
+      background-color: #0056b3;       /* bleu foncé au survol */
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ===== En-tête du site avec navigation ===== -->
+  <header>
+    <h1>Domomix</h1>
+    <nav>
+      <ul>
+        <!-- Menu avec les liens vers les autres pages -->
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="projet.html">Projet</a></li>
+        <li><a href="fonctionnement.html">Fonctionnement</a></li>
+        <li><a href="ihm.html">Interface</a></li>
+        <li><a href="simulateur.html">Simulateur</a></li>
+        <li><a href="telechargements.html">Téléchargements</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== Corps principal ===== -->
+  <main>
+    <h2>Téléchargements</h2>
+
+    <!-- Liste des fichiers disponibles -->
+    <ul class="download-list">
+      <li>
+        <a class="download-link" href="serveur/main.php" download>
+          Télécharger le simulateur PHP (main.php)
+        </a>
+      </li>
+      <li>
+        <a class="download-link" href="serveur/README.md" download>
+          Lire le README du projet
+        </a>
+      </li>
+      <li>
+        <a class="download-link" href="serveur/donnees.csv" download>
+          Données simulées (donnees.csv)
+        </a>
+      </li>
+      <li>
+        <a class="download-link" href="assets/js/simulateur.js" download>
+          Script JavaScript (simulateur.js)
+        </a>
+      </li>
+    </ul>
+
+    <!-- Phrase de description -->
+    <p>Ces fichiers permettent de tester ou personnaliser localement le projet Domomix.</p>
+  </main>
+
+  <!-- ===== Pied de page ===== -->
+  <footer>
+    <p>&copy; 2025 IUT de Nantes - BUT GEII - Projet SAE4</p>
+  </footer>
+</body>
+</html>
